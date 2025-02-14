@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Frontend from "@/componentes/Frontend";
 import { useRouter } from "next/router";
-import {getAvisosPorId, getCategorias, getAvisosComentariosPorId} from './../../servicios/ApiRest';
+import {getAvisosPorId, getCategorias, getAvisosComentariosPorId, addAvisosComentariosPorId} from './../../servicios/ApiRest';
 import {formatearFecha} from './../../helpers/helper';
 import Swal from "sweetalert2";
 const Detalle = ({datos, categorias, comentarios, handleEstaLogueado, authNombre, handleCerrarSesion}) => {
@@ -154,6 +154,7 @@ const Detalle = ({datos, categorias, comentarios, handleEstaLogueado, authNombre
                     >
                       <i className="fas fa-plus"></i> Agregar comentario
                     </a>
+                    
                   <div className="collapse" id="reviewPanel">
                      <div className="pt-4">
                       <form onSubmit={handleSubmit}>
