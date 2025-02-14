@@ -16,6 +16,7 @@
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
+    "react-modal-image": "^2.6.0",
     "sweetalert2": "^11.16.0",
     "sweetalert2-react-content": "^5.1.0"
   }

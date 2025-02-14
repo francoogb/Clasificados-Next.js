@@ -154,7 +154,6 @@ const Detalle = ({datos, categorias, comentarios, handleEstaLogueado, authNombre
                     >
                       <i className="fas fa-plus"></i> Agregar comentario
                     </a>
-                    
                   <div className="collapse" id="reviewPanel">
                      <div className="pt-4">
                       <form onSubmit={handleSubmit}>

@@ -172,3 +172,90 @@ export async function authMisDatos(request) {
         return error.response ? error.response.status : 500;
     }
 }
+
+export async function addCategorias(request) {
+   
+    let datos = axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}clasificados-categorias`, request, {
+            headers: cabeceros
+        })
+        .then((response) => { 
+            return response.status;
+        }).catch((error) => {
+            console.log(error);
+        });
+    return datos;
+}
+export async function editCategorias(request, id) {
+    let datos = axios
+        .put(`${process.env.NEXT_PUBLIC_API_URL}clasificados-categorias/${id}`, request, {
+            headers: cabeceros
+        })
+        .then((response) => {
+            return response.status;
+        }).catch((error) => {
+            console.log(error);
+        });
+    return datos;
+}
+export async function deleteCategorias(id) {
+    let datos = axios
+        .delete(`${process.env.NEXT_PUBLIC_API_URL}clasificados-categorias/${id}`, {
+            headers: cabeceros
+        })
+        .then((response) => {
+            return response.status;
+        }).catch((error) => {
+            console.log(error);
+        });
+    return datos;
+}
+
+
+export async function addAvisos(request) {
+    let formData = new FormData(); 
+    formData.append('clasificados_categoria_id', request.clasificados_categoria_id);
+    formData.append('nombre', request.nombre);
+    formData.append('descripcion', request.descripcion);
+    formData.append('imagen', request.foto); 
+    let datos = axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}clasificados-avisos`, formData, {
+            headers: cabeceros_upload
+        })
+        .then((response) => { 
+            return response.status;
+        }).catch((error) => {
+            console.log(error);
+        });
+    return datos;
+}
+export async function editarAvisos(request, accionesId) {
+    let formData = new FormData(); 
+    formData.append('clasificados_categoria_id', request.clasificados_categoria_id);
+    formData.append('nombre', request.nombre);
+    formData.append('descripcion', request.descripcion);
+    formData.append('imagen', request.foto); 
+    formData.append('id', accionesId);
+    let datos = axios
+        .post(`${process.env.NEXT_PUBLIC_API_URL}clasificados-avisos-update`, formData, {
+            headers: cabeceros_upload
+        })
+        .then((response) => {  
+            return response.status;
+        }).catch((error) => {
+            console.log(error);
+        });
+    return datos;
+}
+export async function deleteAvisos(id) {
+    let datos = axios
+        .delete(`${process.env.NEXT_PUBLIC_API_URL}clasificados-avisos/${id}`, {
+            headers: cabeceros
+        })
+        .then((response) => {
+            return response.status;
+        }).catch((error) => {
+            console.log(error);
+        });
+    return datos;
+}
